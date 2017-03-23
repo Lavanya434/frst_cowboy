@@ -14,8 +14,9 @@ init(_, Req, _Opts) ->
 handle(Req, State=#state{}) ->
     {ok, Req2} = cowboy_req:reply(200,
         [{<<"content-type">>, <<"text/plain">>}],
-        <<"Hello Erlang!">>,
+        [<<"Hello Erlang!">>, <<"hi">>],
         Req),
+    io:format("hi"),
     {ok, Req2, State}.
 
 terminate(_Reason, _Req, _State) ->

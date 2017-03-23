@@ -6,9 +6,9 @@
 
 start(_Type, _Args) ->
     Dispatch = cowboy_router:compile([
-        {'_', [{"/", hello_handler, []}]}
+        {'_', [{"/", my_handler, []}]}
     ]),
-    cowboy:start_http(my_http_listener, 100, [{port, 8080}],
+    cowboy:start_http(my_http_listener, 100, [{port, 8088}],
         [{env, [{dispatch, Dispatch}]}]
     ),
     frst_cowboy_sup:start_link().
